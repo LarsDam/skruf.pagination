@@ -25,17 +25,12 @@ var App = React.createClass({
 		}
 	},
 
-	onPageChange: function(e, page, pages) {
+	onPageChange: function(page) {
 
-		e.preventDefault();
+		this.setState({
+			page: page
+		});
 
-		if(page >= 1 && page <= pages) {
-
-			this.setState({
-				page: page
-			});
-
-		}
 	},
 
 	render: function() {
@@ -55,7 +50,7 @@ var App = React.createClass({
 			<div>
 				<h2>Table</h2>
 
-				<Pagination pages={pager.pages} page={pager.page} onChange={this.onPageChange} />
+				<Pagination pages={pager.pages} page={pager.page} onChange={this.onPageChange} size="sm" />
 
 				<table className="table">
 					<thead>
